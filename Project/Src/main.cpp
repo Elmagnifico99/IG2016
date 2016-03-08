@@ -152,11 +152,12 @@ void freeTextures()
 
 class MyApp : public Application
 {
-	virtual void OnInitialize(int argc, char** argv)
+	virtual void OnInitialize(int argc, char** argv, const Parameters& parameters)
 	{
 		tex = new Texture("test.png");
 		tex2 = new Texture("bla.png");
 		init();
+		reshape(parameters.Width, parameters.Height);
 	}
 	virtual void OnUpdate(float deltaTimeInSeconds)
 	{
@@ -208,6 +209,7 @@ int main(int argc,char **argv) {
 	p.PositionY = 50;
 	p.CenterWindow = false;
 	p.WindowTitle = "Application test";
+	//p.FixedSize = true;
 
 	MyApp app;
 	app.Start(argc, argv, p);

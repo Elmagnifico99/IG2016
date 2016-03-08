@@ -10,6 +10,7 @@ class Application
 
 public:
 
+	
 	class Parameters
 	{
 	public:
@@ -36,7 +37,7 @@ public:
 	explicit		Application				(void);
 	virtual			~Application			(void);
 
-	virtual void	OnInitialize			(int argc, char** argv);
+	virtual void	OnInitialize			(int argc, char** argv, const Parameters& parameters);
 
 	virtual void	OnUpdate				(float deltaTimeInSeconds);
 	virtual void	OnResizingWindow		(unsigned int width, unsigned int height);
@@ -47,7 +48,7 @@ public:
 	virtual void	OnMouseButtonPressed	(EMouseButton button, int positionX, int positionY);
 	virtual void	OnMouseButtonReleased	(EMouseButton button, int positionX, int positionY);
 	virtual void	OnMouseMoved			(int positionX, int positionY);
-	virtual void	OnMouseScrolled			(int delta, int positionX, int positionY);
+	virtual void	OnMouseScrolled			(int delta, int positionX, int positionY); // Not enabled with glut
 
 	virtual void	OnRelease				(void);
 

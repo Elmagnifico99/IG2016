@@ -2,6 +2,12 @@
 
 #include <GL/glut.h>
 
+#if defined(__WIN32__)
+#include <Windows.h>
+#else
+	// Not implemented yet
+#endif
+
 /*static*/ bool Keyboard::s_keys[e_key_count];
 /*static*/ int Keyboard::s_modifiers = 0;
 /*static*/ int Keyboard::s_oldModifiers = 0;
@@ -31,7 +37,7 @@
 	s_modifiers = 0;
 	s_oldModifiers = 0;
 }
-#include <cstdio>
+
 /*static*/ void Keyboard::UpdateModifiers()
 {
 	s_oldModifiers = s_modifiers;
@@ -72,6 +78,7 @@
 	SetKey(e_key_ctrl, IsCtrlPressed());
 	SetKey(e_key_alt, IsAltPressed());
 #else
+	// Not implemented yet
 #endif
 }
 
@@ -119,11 +126,18 @@
 
 /*static*/ void Keyboard::SetKey(EKeyCode key, bool state)
 {
-	s_keys[key] = state;
+	if(e_key_count != key)
+	{
+		s_keys[key] = state;
+	}
 }
 
 /*static*/ bool Keyboard::GetKey(EKeyCode key)
 {
+	if(e_key_count == key)
+	{
+		return false;
+	}
 	return s_keys[key];
 }
 

@@ -285,9 +285,9 @@ enum EKeyCode
 	e_key_extended_127,
 
 	// Modifier character
-	e_key_shift = 256,
-	e_key_ctrl,
-	e_key_alt,
+	e_key_shift = 256, // Do not use in OnKey* functions
+	e_key_ctrl, // Do not use in OnKey* functions
+	e_key_alt, // Do not use in OnKey* functions
 	e_key_left_shift,
 	e_key_left_ctrl,
 	e_key_left_alt,
@@ -324,10 +324,11 @@ enum EKeyCode
 
 struct Key
 {
-	explicit Key(void);
-	explicit Key(EKeyCode co, unsigned char ch);
-	EKeyCode code;
-	unsigned char character;
+	explicit		Key			(void);
+	explicit		Key			(EKeyCode co, unsigned char ch);
+
+	EKeyCode		code;
+	unsigned char	character;
 };
 
 class Keyboard
@@ -335,34 +336,32 @@ class Keyboard
 
 public:
 
-	virtual ~Keyboard(void);
+	virtual		~Keyboard			(void);
 
-	static void Initialize(void);
+	static void Initialize			(void);
 
-	static void UpdateModifiers(void);
+	static void UpdateModifiers		(void);
 
-	static bool IsShiftPressed(void);
-	static bool IsCtrlPressed(void);
-	static bool IsAltPressed(void);
+	static bool IsShiftPressed		(void);
+	static bool IsCtrlPressed		(void);
+	static bool IsAltPressed		(void);
 
-	static bool IsShiftStateChanged(void);
-	static bool IsCtrlStateChanged(void);
-	static bool IsAltStateChanged(void);
+	static bool IsShiftStateChanged	(void);
+	static bool IsCtrlStateChanged	(void);
+	static bool IsAltStateChanged	(void);
 
-	static void SetKeyRepeatEnabled(bool state);
+	static void SetKeyRepeatEnabled	(bool state);
 
-	static void SetKey(EKeyCode key, bool state);
-	static bool GetKey(EKeyCode key);
+	static void SetKey				(EKeyCode key, bool state);
+	static bool GetKey				(EKeyCode key);
 
 private:
 
-	explicit Keyboard(void);
+	explicit	Keyboard			(void);
 
 	static bool s_keys[e_key_count];
-	static int s_modifiers;
-	static int s_oldModifiers;
-
-protected:
+	static int	s_modifiers;
+	static int	s_oldModifiers;
 
 };
 

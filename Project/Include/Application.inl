@@ -2,7 +2,7 @@
 
 /*explicit*/ inline Application::Application() {}
 /*virtual*/ inline Application::~Application() {}
-/*virtual*/ inline void Application::OnInitialize(int argc, char** argv) {}
+/*virtual*/ inline void Application::OnInitialize(int argc, char** argv, const Parameters& parameters) {}
 /*virtual*/ inline void Application::OnUpdate(float deltaTimeInSeconds) {}
 /*virtual*/ inline void Application::OnResizingWindow(unsigned int width, unsigned int height) {}
 /*virtual*/ inline void Application::OnKeyPressed(Key key) {}
