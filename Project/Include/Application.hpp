@@ -81,6 +81,7 @@ protected:
 	bool				m_fixedSize;
 	unsigned int		m_width;
 	unsigned int		m_height;
+	unsigned int		m_timeElapsed;
 
 };
 

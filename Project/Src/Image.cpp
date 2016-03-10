@@ -382,7 +382,7 @@ bool Image::__internal_Load(const char* filename, const unsigned char* memory, u
 	m_pixels = new unsigned char[pixelCount];
 	for(register unsigned int i = 0; i < pixelCount; ++i)
 	{
-		m_pixels[i] = pbImageData[i];
+		m_pixels[(piHeight - (i / ulRowBytes) - 1) * ulRowBytes + i % ulRowBytes] = pbImageData[i];
 	}
 
 	delete[](pbImageData);
@@ -500,7 +500,7 @@ bool Image::__internal_Save(const char* filename, unsigned char* memory, unsigne
 	// set the individual row-pointers to point at the correct offsets
 	for(register unsigned i = 0; i < m_height; ++i)
 	{
-		ppbRowPointers[i] = pDiData + i * ulRowBytes;
+		ppbRowPointers[i] = pDiData + (m_height - i - 1) * ulRowBytes;
 	}
 
 	// write out the entire image data in one call

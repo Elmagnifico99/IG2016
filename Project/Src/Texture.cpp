@@ -31,12 +31,12 @@
 	, m_clampRepeat(true)
 {
 	Initialize();
+	SetImage(image);
 	m_smooth = !m_smooth;
 	m_clampRepeat = !m_clampRepeat;
 	SetSmoothEnabled(!m_smooth);
 	SetClampRepeat(!m_clampRepeat);
 	AddReference(m_identifier);
-	SetImage(image);
 }
 
 /*explicit*/ Texture::Texture(const Texture& texture)

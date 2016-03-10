@@ -10,54 +10,9 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Include\PNG\cexcept.h" />
-    <ClInclude Include="..\..\Include\PNG\crc32.h" />
-    <ClInclude Include="..\..\Include\PNG\deflate.h" />
-    <ClInclude Include="..\..\Include\PNG\inffast.h" />
-    <ClInclude Include="..\..\Include\PNG\inffixed.h" />
-    <ClInclude Include="..\..\Include\PNG\inflate.h" />
-    <ClInclude Include="..\..\Include\PNG\inftrees.h" />
-    <ClInclude Include="..\..\Include\PNG\png.h" />
-    <ClInclude Include="..\..\Include\PNG\pngconf.h" />
-    <ClInclude Include="..\..\Include\PNG\trees.h" />
-    <ClInclude Include="..\..\Include\PNG\zconf.h" />
-    <ClInclude Include="..\..\Include\PNG\zconf.in.h" />
-    <ClInclude Include="..\..\Include\PNG\zlib.h" />
-    <ClInclude Include="..\..\Include\PNG\zutil.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Src\PNG\adler32.c" />
-    <ClCompile Include="..\..\Src\PNG\compress.c" />
-    <ClCompile Include="..\..\Src\PNG\crc32.c" />
-    <ClCompile Include="..\..\Src\PNG\deflate.c" />
-    <ClCompile Include="..\..\Src\PNG\gzio.c" />
-    <ClCompile Include="..\..\Src\PNG\infback.c" />
-    <ClCompile Include="..\..\Src\PNG\inffast.c" />
-    <ClCompile Include="..\..\Src\PNG\inflate.c" />
-    <ClCompile Include="..\..\Src\PNG\inftrees.c" />
-    <ClCompile Include="..\..\Src\PNG\png.c" />
-    <ClCompile Include="..\..\Src\PNG\pngerror.c" />
-    <ClCompile Include="..\..\Src\PNG\pngget.c" />
-    <ClCompile Include="..\..\Src\PNG\pngmem.c" />
-    <ClCompile Include="..\..\Src\PNG\pngpread.c" />
-    <ClCompile Include="..\..\Src\PNG\pngread.c" />
-    <ClCompile Include="..\..\Src\PNG\pngrio.c" />
-    <ClCompile Include="..\..\Src\PNG\pngrtran.c" />
-    <ClCompile Include="..\..\Src\PNG\pngrutil.c" />
-    <ClCompile Include="..\..\Src\PNG\pngset.c" />
-    <ClCompile Include="..\..\Src\PNG\pngtrans.c" />
-    <ClCompile Include="..\..\Src\PNG\pngwio.c" />
-    <ClCompile Include="..\..\Src\PNG\pngwrite.c" />
-    <ClCompile Include="..\..\Src\PNG\pngwtran.c" />
-    <ClCompile Include="..\..\Src\PNG\pngwutil.c" />
-    <ClCompile Include="..\..\Src\PNG\trees.c" />
-    <ClCompile Include="..\..\Src\PNG\uncompr.c" />
-    <ClCompile Include="..\..\Src\PNG\zutil.c" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{83E36047-9657-4667-8039-3263BABE4E81}</ProjectGuid>
-    <RootNamespace>PNG</RootNamespace>
+    <ProjectGuid>{57E156D0-6AFA-4573-90C7-2188D23F21A4}</ProjectGuid>
+    <RootNamespace>TinyXML</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -82,20 +37,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.lib</TargetExt>
     <OutDir>..\..\Lib</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>libPNG</TargetName>
-    <IncludePath>C:\Users\Joseph\Documents\cours\s8\IG\TP\Project\Include</IncludePath>
-    <IntDir>..\..\Temp\$(Configuration)\$(ProjectName)</IntDir>
+    <IntDir>..\..\Temp\$(TargetName)\$(Configuration)\</IntDir>
+    <TargetName>libTinyXML</TargetName>
+    <IncludePath>C:\Users\Joseph\Documents\GitHub\IG2016\Project\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetExt>.lib</TargetExt>
     <OutDir>..\..\Lib</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>libPNG</TargetName>
-    <IncludePath>C:\Users\Joseph\Documents\cours\s8\IG\TP\Project\Include</IncludePath>
-    <IntDir>..\..\Temp\$(Configuration)\$(ProjectName)</IntDir>
+    <IntDir>..\..\Temp\$(TargetName)\$(Configuration)\</IntDir>
+    <TargetName>libTinyXML</TargetName>
+    <IncludePath>C:\Users\Joseph\Documents\GitHub\IG2016\Project\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -119,6 +72,12 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Include\TinyXML\tinyxml2.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\TinyXML\tinyxml2.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -100,26 +100,32 @@
   <ItemGroup>
     <Library Include="..\..\Lib\glut32.ms.lib" />
     <Library Include="..\..\Lib\libPNG.lib" />
+    <Library Include="..\..\Lib\libTinyXML.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Application.cpp" />
     <ClCompile Include="..\..\Src\Image.cpp" />
     <ClCompile Include="..\..\Src\Keyboard.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\Material.cpp" />
+    <ClCompile Include="..\..\Src\Mouse.cpp" />
     <ClCompile Include="..\..\Src\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Application.hpp" />
-    <ClInclude Include="..\..\Include\Event.hpp" />
     <ClInclude Include="..\..\Include\Image.hpp" />
     <ClInclude Include="..\..\Include\Keyboard.hpp" />
+    <ClInclude Include="..\..\Include\Material.hpp" />
     <ClInclude Include="..\..\Include\Mouse.hpp" />
     <ClInclude Include="..\..\Include\Texture.hpp" />
+    <ClInclude Include="..\..\Include\Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Include\Application.inl" />
     <None Include="..\..\Include\Image.inl" />
+    <None Include="..\..\Include\Material.inl" />
     <None Include="..\..\Include\Texture.inl" />
+    <None Include="..\..\Include\Vector.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

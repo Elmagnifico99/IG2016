@@ -13,9 +13,12 @@
 
 #include <Image.hpp>
 #include <Texture.hpp>
+#include <Material.hpp>
 Texture* tex = nullptr;
 Texture* tex2 = nullptr;
+Material* mat = nullptr;
 #include <Application.hpp>
+#include <Vector.hpp>
 
 /* Variables et constantes globales             */
 /* pour les angles et les couleurs utilises     */
@@ -55,33 +58,36 @@ void init(void) {
 /* Scene dessinee                               */
 static float color[] = {1.0f, 1.0f, 1.0f, 1.0f};
 void scene(void) {
-  glPushMatrix();
-  glMaterialfv(GL_FRONT, GL_DIFFUSE, color);
-    tex->Enable();
-	glBegin(GL_QUADS);
-		glNormal3f(0.0f, 0.0f, 1.0f);
-		glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(-5.0f, -5.0f, 0.0f);
-		glTexCoord2f(1.0f, 0.0f);
-		glVertex3f(5.0f, -5.0f, 0.0f);
-		glTexCoord2f(1.0f, 1.0f);
-		glVertex3f(5.0f, 5.0f, 0.0f);
-		glTexCoord2f(0.0f, 1.0f);
-		glVertex3f(-5.0f, 5.0f, 0.0f);
-	glEnd();
-	tex2->Enable();
-	glBegin(GL_QUADS);
-		glNormal3f(0.0f, 0.0f, 1.0f);
-		glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(-15.0f, -5.0f, 0.0f);
-		glTexCoord2f(1.0f, 0.0f);
-		glVertex3f(-5.0f, -5.0f, 0.0f);
-		glTexCoord2f(1.0f, 1.0f);
-		glVertex3f(-5.0f, 5.0f, 0.0f);
-		glTexCoord2f(0.0f, 1.0f);
-		glVertex3f(-15.0f, 5.0f, 0.0f);
-	glEnd();
-  glPopMatrix();
+	glPushMatrix();
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, color);
+		Material::Disable();
+		tex->Enable();
+		glBegin(GL_QUADS);
+			glNormal3f(0.0f, 0.0f, 1.0f);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(0.0f, -10.0f, 0.0f);
+			glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(20.0f, -10.0f, 0.0f);
+			glTexCoord2f(1.0f, 1.0f);
+			glVertex3f(20.0f, 10.0f, 0.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(0.0f, 10.0f, 0.0f);
+		glEnd();
+		Material::Disable();
+		mat->Enable();
+		glBegin(GL_QUADS);
+			glNormal3f(0.0f, 0.0f, 1.0f);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(-20.0f, -10.0f, 0.0f);
+			glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(0.0f, -10.0f, 0.0f);
+			glTexCoord2f(1.0f, 1.0f);
+			glVertex3f(0.0f, 10.0f, 0.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(-20.0f, 10.0f, 0.0f);
+		glEnd();
+		Material::Disable();
+	glPopMatrix();
 }
 
 /* Fonction executee lors d'un rafraichissement */
@@ -148,19 +154,58 @@ void freeTextures()
 {
 	delete tex;
 	delete tex2;
+	delete mat;
 }
 
 class MyApp : public Application
 {
 	virtual void OnInitialize(int argc, char** argv, const Parameters& parameters)
 	{
-		tex = new Texture("test.png");
-		tex2 = new Texture("bla.png");
+		Image img1("test.png");
+		Image img2("bla.png");
+		tex = new Texture(img1);
+		tex2 = new Texture(img2);
+		printf("%d %d %d\n", img1.GetPixels()[0], img1.GetPixels()[1], img1.GetPixels()[2]);
+		mat = new Material();
+		mat->SetDiffuseTexture(tex2, Material::e_texture_color_blend_mode_texture_and_color);
 		init();
 		reshape(parameters.Width, parameters.Height);
+		img1.Save("ir.png");
 	}
 	virtual void OnUpdate(float deltaTimeInSeconds)
 	{
+		r0 += 0.05f * deltaTimeInSeconds;
+		r1 += 0.03f * deltaTimeInSeconds;
+		r2 += 0.2f * deltaTimeInSeconds;
+		float tmp0 = r0, tmp1 = r1, tmp2 = r2;
+		if(r0 >= 1.0f)
+		{
+			tmp0 = 2.0f - r0;
+			while(r0 >= 2.0f)
+			{
+				r0 -= 2.0f;
+				tmp0 = r0;
+			}
+		}
+		if(r1 >= 1.0f)
+		{
+			tmp1 = 2.0f - r1;
+			while(r1 >= 2.0f)
+			{
+				r1 -= 2.0f;
+				tmp1 = r1;
+			}
+		}
+		if(r2 >= 1.0f)
+		{
+			tmp2 = 2.0f - r2;
+			while(r2 >= 2.0f)
+			{
+				r2 -= 2.0f;
+				tmp2 = r2;
+			}
+		}
+		mat->SetDiffuse(tmp0, tmp1, tmp2);
 		display();
 	}
 	virtual void OnResizingWindow(unsigned int width, unsigned int height)

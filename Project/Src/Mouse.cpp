@@ -1,5 +1,9 @@
 #include <Mouse.hpp>
 
+/*static*/ int Mouse::s_positionX;
+/*static*/ int Mouse::s_positionY;
+/*static*/ bool Mouse::s_buttonState[e_mouse_button_count];
+
 /*virtual*/ Mouse::~Mouse() { }
 
 /*static*/ void Mouse::Initialize()

@@ -120,6 +120,7 @@ bool Application::Start(int argc, char** argv, const Parameters& parameters)
 	glutCreateWindow(parameters.WindowTitle.c_str());
 	atexit(Application::__internal_RELEASE);
 
+	m_timeElapsed = glutGet(GLUT_ELAPSED_TIME);
 	OnInitialize(argc, argv, parameters);
 
 	if(parameters.EnableOverlay)
@@ -154,7 +155,9 @@ void Application::Close() const
 
 /*static*/ void Application::__internal_DISPLAY_FUNC()
 {
-	s_instance->OnUpdate(glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
+	register unsigned int tmp = s_instance->m_timeElapsed;
+	s_instance->m_timeElapsed = glutGet(GLUT_ELAPSED_TIME);
+	s_instance->OnUpdate((s_instance->m_timeElapsed - tmp) / 1000.0f);
 }
 
 /*static*/ void Application::__internal_OVERLAY_DISPLAY_FUNC()

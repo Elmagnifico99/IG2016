@@ -17,6 +17,7 @@
   <ItemGroup>
     <Library Include="..\..\Lib\glut32.ms.lib" />
     <Library Include="..\..\Lib\libPNG.lib" />
+    <Library Include="..\..\Lib\libTinyXML.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\main.cpp">
@@ -34,15 +35,18 @@
     <ClCompile Include="..\..\Src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Image.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Include\Texture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Include\Event.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Include\Mouse.hpp">
@@ -54,6 +58,12 @@
     <ClInclude Include="..\..\Include\Application.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Include\Material.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Vector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Include\Image.inl">
@@ -63,6 +73,12 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\..\Include\Application.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\Include\Material.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\Include\Vector.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
