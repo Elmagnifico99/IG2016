@@ -300,3 +300,39 @@ template<typename T> inline bool operator!=(const Vector4<T>& left, const Vector
 	return (left.mx != right.m_x) || (left.m_y != right.m_y) || (left.m_z != right.m_z) || (left.m_w != right.m_w);
 }
 
+template<typename T> inline Vector3<T> Cross(const Vector3<T>& a, const Vector3<T>& b)
+{
+	return Vector3<T>(a.m_y * b.m_z - a.m_z - b.m_y, a.m_z * b.m_x - a.m_x - b.m_z, a.m_x * b.m_y - a.m_y - b.m_x);
+}
+
+template<typename T> inline T Dot(const Vector3<T>& a, const Vector3<T>& b)
+{
+	return a.m_x * b.m_x + a.m_y * b.m_y + a.m_z * b.m_z;
+}
+
+template<typename T> inline double Angle(const Vector3<T>& a, const Vector3<T>& b)
+{
+	double na = Norm(a);
+	double nb = Norm(b);
+	if(0.0 == na || 0.0 == nb)
+	{
+		return 0.0;
+	}
+	return acos(Dot(a, b) / (na * nb));
+}
+
+template<typename T> inline Vector3<T> Normalize(const Vector3<T>& v)
+{
+	register double squareRoot = Norm(v);
+	if(squareRoot == 0.0)
+	{
+		return Vector3<T>();
+	}
+	return Vector3<T>(v.m_x / squareRoot, v.m_y / squareRoot, v.m_z / squareRoot);
+}
+
+template<typename T> inline T Norm(const Vector3<T>& v)
+{
+	return sqrt(v.m_x * v.m_x + v.m_y * v.m_y + v.m_z * v.m_z);
+}
+

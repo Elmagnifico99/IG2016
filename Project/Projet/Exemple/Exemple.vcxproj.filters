@@ -41,6 +41,9 @@
     <ClCompile Include="..\..\Src\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Image.hpp">
@@ -64,6 +67,12 @@
     <ClInclude Include="..\..\Include\Vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Include\Node.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Leaf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Include\Image.inl">
@@ -79,6 +88,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\..\Include\Vector.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\Include\Leaf.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

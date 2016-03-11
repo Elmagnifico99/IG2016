@@ -165,12 +165,10 @@ class MyApp : public Application
 		Image img2("bla.png");
 		tex = new Texture(img1);
 		tex2 = new Texture(img2);
-		printf("%d %d %d\n", img1.GetPixels()[0], img1.GetPixels()[1], img1.GetPixels()[2]);
 		mat = new Material();
 		mat->SetDiffuseTexture(tex2, Material::e_texture_color_blend_mode_texture_and_color);
 		init();
 		reshape(parameters.Width, parameters.Height);
-		img1.Save("ir.png");
 	}
 	virtual void OnUpdate(float deltaTimeInSeconds)
 	{
