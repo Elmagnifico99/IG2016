@@ -39,3 +39,13 @@
 {
 	m_rootNode->Render();
 }
+
+/*virtual*/ void Scene::save()
+{
+
+}
+
+/*virtual*/ void Scene::load(const char* fileName)
+{
+
+}
