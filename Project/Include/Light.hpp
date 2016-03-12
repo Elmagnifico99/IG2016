@@ -34,14 +34,16 @@ class Light
 {
 public :
 	explicit Light();
-	
-	explicit SetPosition(Vector3f pos);
+	explicit Light(Vector3f position, ColorRGBA ambiant, ColorRGBA diffuse, ColorRGBA specular, ELightAttenuation attenuationType, float currentAttenuation);
 
-	explicit SetAmbiantLight(ColorRGBA color);
-	explicit SetDiffuseLight(ColorRGBA color);
-	explicit SetSpecularLight(ColorRGBA color);
+	virtual void		SetPosition(Vector3f pos);
+	virtual Vector3f	GetPosition();
 
-	explicit SetAttenuation(ELightAttenuation type, float value);
+	virtual void		SetAmbiantLight(ColorRGBA color);
+	virtual void		SetDiffuseLight(ColorRGBA color);
+	virtual void		SetSpecularLight(ColorRGBA color);
+
+	virtual void		SetAttenuation(ELightAttenuation type, float value);
 protected :
 	Vector3f m_position;
 
@@ -54,4 +56,41 @@ protected :
 	float	m_currentAttenuation;
 };
 
+class PointLight : public Light {};
+
+class SpotLight : public Light
+{
+public : 
+	explicit SpotLight();
+	explicit SpotLight(Vector3f position
+		, ColorRGBA ambiant
+		, ColorRGBA diffuse
+		, ColorRGBA specular
+		, ELightAttenuation attenuationType
+		, float currentAttenuation
+		, float cutOff);
+
+	virtual void setCutOff(float value);
+
+protected :
+	float m_cutoff;
+};
+
+class DirectionalLight : public Light
+{
+public : 
+	explicit DirectionalLight();
+	explicit DirectionalLight(Vector3f position
+		, ColorRGBA ambiant
+		, ColorRGBA diffuse
+		, ColorRGBA specular
+		, ELightAttenuation attenuationType
+		, float currentAttenuation
+		, float direction);
+
+	virtual void setDirection(Vector3d value);
+
+protected :
+	Vector3d m_direction;
+};
 #endif // __LIGHT_H
