@@ -24,6 +24,16 @@ protected:
 
 };
 
+class LightLeaf : public Leaf
+{
+
+}
+
+class CameraLeaf : public Leaf
+{
+
+}
+
 #include "Leaf.inl"
 
 #endif // __LEAF_HPP

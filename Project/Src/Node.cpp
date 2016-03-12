@@ -45,6 +45,7 @@
 
 /*virtual*/ void Node::Render()
 {
+	ApplyTransformation();
 	for(std::vector<Leaf*>::iterator it = m_leafChildren.begin(); it != m_leafChildren.end(); ++it)
 	{
 		(*it)->Render();
