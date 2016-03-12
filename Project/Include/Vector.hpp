@@ -1,8 +1,6 @@
 #ifndef __VECTOR_HPP
 #define __VECTOR_HPP
 
-#define TEMPLATE(t) template<typename T>
-
 template<typename T>
 class Vector2
 {

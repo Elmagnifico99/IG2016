@@ -51,3 +51,8 @@
 {
 	return m_good;
 }
+
+/*virtual*/ inline std::string Image::GetPath() const
+{
+	return m_file;
+}

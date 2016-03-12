@@ -12,6 +12,7 @@
 	, m_backgroundGreen(0)
 	, m_backgroundBlue(0)
 	, m_good(true)
+	, m_file(filename)
 {
 	m_good = Load(filename);
 }
@@ -26,6 +27,7 @@
 	, m_backgroundGreen(0)
 	, m_backgroundBlue(0)
 	, m_good(true)
+	, m_file("")
 {
 	if(m_size < 1 || m_size > 4)
 	{
@@ -46,6 +48,7 @@
 	, m_backgroundGreen(0)
 	, m_backgroundBlue(0)
 	, m_good(true)
+	, m_file("")
 {
 	if(m_size < 1 || m_size > 4)
 	{

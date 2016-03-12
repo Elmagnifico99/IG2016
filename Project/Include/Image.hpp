@@ -2,6 +2,7 @@
 #define __IMAGE_HPP
 
 #include <PNG/png.h>
+#include <string>
 
 class Image
 {
@@ -66,6 +67,8 @@ public:
 	virtual bool			CopyImage		(const Image& toCopy, Rect& dest = Rect(0, 0, 0, 0), Rect& src = Rect(0, 0, 0, 0));
 	virtual bool			IsValid			(void) const;
 
+	virtual std::string		GetPath			(void) const;
+
 private:
 
 	static void				__internal_PNG_ERROR(png_structp png_ptr, png_const_charp msg);
@@ -87,6 +90,7 @@ protected:
 	unsigned char	m_backgroundGreen;
 	unsigned char	m_backgroundBlue;
 	bool			m_good;
+	std::string		m_file;
 
 };
 
