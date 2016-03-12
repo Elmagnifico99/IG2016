@@ -8,7 +8,7 @@ public:
 
 	union
 	{
-		float c[3];
+		float rgb[3];
 		struct
 		{
 			float r, g, b;
@@ -24,7 +24,7 @@ public:
 
 	union
 	{
-		float c[4];
+		float rgba[4];
 		struct
 		{
 			float r, g, b, a;
