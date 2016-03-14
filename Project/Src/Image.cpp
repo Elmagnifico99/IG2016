@@ -2,6 +2,10 @@
 
 #include <PNG/cexcept.h>
 
+#ifdef NO_INLINE
+#include <Image.inl>
+#endif
+
 /*explicit*/ Image::Image(const char* filename)
 	: m_width(0)
 	, m_height(0)

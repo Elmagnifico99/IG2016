@@ -104,22 +104,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Application.cpp" />
+    <ClCompile Include="..\..\Src\Color.cpp" />
     <ClCompile Include="..\..\Src\Image.cpp" />
     <ClCompile Include="..\..\Src\Keyboard.cpp" />
+    <ClCompile Include="..\..\Src\Leaf.cpp" />
+    <ClCompile Include="..\..\Src\Light.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\Material.cpp" />
     <ClCompile Include="..\..\Src\Mouse.cpp" />
     <ClCompile Include="..\..\Src\Node.cpp" />
+    <ClCompile Include="..\..\Src\Scene.cpp" />
     <ClCompile Include="..\..\Src\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Application.hpp" />
+    <ClInclude Include="..\..\Include\Color.hpp" />
+    <ClInclude Include="..\..\Include\Config.hpp" />
     <ClInclude Include="..\..\Include\Image.hpp" />
     <ClInclude Include="..\..\Include\Keyboard.hpp" />
     <ClInclude Include="..\..\Include\Leaf.hpp" />
+    <ClInclude Include="..\..\Include\Light.hpp" />
     <ClInclude Include="..\..\Include\Material.hpp" />
     <ClInclude Include="..\..\Include\Mouse.hpp" />
     <ClInclude Include="..\..\Include\Node.hpp" />
+    <ClInclude Include="..\..\Include\Scene.hpp" />
     <ClInclude Include="..\..\Include\Texture.hpp" />
     <ClInclude Include="..\..\Include\Vector.hpp" />
   </ItemGroup>
@@ -127,6 +135,7 @@
     <None Include="..\..\Include\Application.inl" />
     <None Include="..\..\Include\Image.inl" />
     <None Include="..\..\Include\Leaf.inl" />
+    <None Include="..\..\Include\Light.inl" />
     <None Include="..\..\Include\Material.inl" />
     <None Include="..\..\Include\Texture.inl" />
     <None Include="..\..\Include\Vector.inl" />

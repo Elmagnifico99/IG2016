@@ -1,6 +1,8 @@
 #ifndef __MATERIAL_HPP
 #define __MATERIAL_HPP
 
+#include <Config.hpp>
+
 #include <Texture.hpp>
 
 class Material
@@ -72,6 +74,8 @@ protected:
 
 };
 
+#ifndef NO_INLINE
 #include "Material.inl"
+#endif // NO_INLINE
 
 #endif // __MATERIAL_HPP

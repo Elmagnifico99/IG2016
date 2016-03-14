@@ -1,6 +1,6 @@
 #include <Image.hpp>
 
-/*virtual*/ inline Image::~Image()
+/*virtual*/ INLINE Image::~Image()
 {
 	if(nullptr != m_pixels)
 	{
@@ -8,22 +8,22 @@
 	}
 }
 
-/*virtual*/ inline unsigned int Image::GetBPP() const
+/*virtual*/ INLINE unsigned int Image::GetBPP() const
 {
 	return m_bitsPerPixels;
 }
 
-/*virtual*/ inline unsigned char* Image::GetPixels() const
+/*virtual*/ INLINE unsigned char* Image::GetPixels() const
 {
 	return m_pixels;
 }
 
-/*virtual*/ inline unsigned char* Image::GetPixels()
+/*virtual*/ INLINE unsigned char* Image::GetPixels()
 {
 	return m_pixels;
 }
 
-/*explicit*/ inline Image::Rect::Rect(unsigned int l, unsigned int t, unsigned int w, unsigned int h)
+/*explicit*/ INLINE Image::Rect::Rect(unsigned int l, unsigned int t, unsigned int w, unsigned int h)
 	: left(l)
 	, top(t)
 	, width(w)
@@ -32,27 +32,27 @@
 		
 }
 
-/*virtual*/ inline bool Image::Rect::operator==(const Rect& other)
+/*virtual*/ INLINE bool Image::Rect::operator==(const Rect& other)
 {
 	return left == other.left && top == other.top && width == other.width && height == other.height;
 }
 
-/*virtual*/ inline unsigned int Image::GetWidth() const
+/*virtual*/ INLINE unsigned int Image::GetWidth() const
 {
 	return m_width;
 }
 
-/*virtual*/ inline unsigned int Image::GetHeight() const
+/*virtual*/ INLINE unsigned int Image::GetHeight() const
 {
 	return m_height;
 }
 
-/*virtual*/ inline bool Image::IsValid() const
+/*virtual*/ INLINE bool Image::IsValid() const
 {
 	return m_good;
 }
 
-/*virtual*/ inline std::string Image::GetPath() const
+/*virtual*/ INLINE std::string Image::GetPath() const
 {
 	return m_file;
 }

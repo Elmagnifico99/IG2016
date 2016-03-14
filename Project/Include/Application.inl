@@ -1,14 +1,61 @@
 #include <Application.hpp>
 
-/*explicit*/ inline Application::Application() {}
-/*virtual*/ inline Application::~Application() {}
-/*virtual*/ inline void Application::OnInitialize(int argc, char** argv, const Parameters& parameters) {}
-/*virtual*/ inline void Application::OnUpdate(float deltaTimeInSeconds) {}
-/*virtual*/ inline void Application::OnResizingWindow(unsigned int width, unsigned int height) {}
-/*virtual*/ inline void Application::OnKeyPressed(Key key) {}
-/*virtual*/ inline void Application::OnKeyReleased(Key key) {}
-/*virtual*/ inline void Application::OnMouseButtonPressed(EMouseButton button, int positionX, int positionY) {}
-/*virtual*/ inline void Application::OnMouseButtonReleased(EMouseButton button, int positionX, int positionY) {}
-/*virtual*/ inline void Application::OnMouseMoved(int positionX, int positionY) {}
-/*virtual*/ inline void Application::OnMouseScrolled(int delta, int positionX, int positionY) {}
-/*virtual*/ inline void Application::OnRelease() {}
+/*explicit*/ INLINE Application::Application()
+{
+
+}
+
+/*virtual*/ INLINE Application::~Application()
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnInitialize(int argc, char** argv, const Parameters& parameters)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnUpdate(float deltaTimeInSeconds)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnResizingWindow(unsigned int width, unsigned int height)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnKeyPressed(Key key)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnKeyReleased(Key key)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnMouseButtonPressed(EMouseButton button, int positionX, int positionY)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnMouseButtonReleased(EMouseButton button, int positionX, int positionY)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnMouseMoved(int positionX, int positionY)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnMouseScrolled(int delta, int positionX, int positionY)
+{
+
+}
+
+/*virtual*/ INLINE void Application::OnRelease()
+{
+
+}

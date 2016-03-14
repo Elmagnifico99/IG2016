@@ -1,5 +1,6 @@
 #include <Scene.hpp>
 #include <iostream>
+#include <GL/gl.h>
 
 /*virtual*/ void Scene::RootNode::ApplyTransformation(void) {}
 
@@ -30,7 +31,7 @@
 	}
 }
 
-/*explicit*/ Node* Scene::GetRootNode()
+/*explicit*/ Node* Scene::GetRootNode() const
 {
 	return m_rootNode;
 }
@@ -40,12 +41,53 @@
 	m_rootNode->Render();
 }
 
-/*virtual*/ void Scene::save()
+/*virtual*/ void Scene::Save(const char* filename)
 {
 
 }
 
-/*virtual*/ void Scene::load(const char* fileName)
+/*virtual*/ void Scene::Load(const char* fileName)
 {
 
+}
+
+/*virtual*/ DirectionalLight* Scene::GetSunLight(void) const
+{
+	return m_sunLight;
+}
+
+/*virtual*/ void Scene::SetLightCount(unsigned int count)
+{
+	int c;
+	glGetIntegerv(GL_MAX_LIGHTS, &c);
+	if(0 < count)
+	{
+		if(c > count)
+		{
+			m_lightCount = count;
+		}
+		else
+		{
+			m_lightCount = c - 1;
+		}
+	}
+	else
+	{
+		m_lightCount = 0;
+	}
+}
+
+/*virtual*/ void Scene::PrepareLights()
+{
+	for(std::vector<LightLeaf*>::iterator it = m_lights.begin(); it != m_lights.end(); ++it)
+	{
+		if((*it)->IsEnabled())
+		{
+			Light* light = (*it)->GetLight();
+			if(nullptr != light && light->IsEnabled())
+			{
+
+			}
+		}
+	}
 }

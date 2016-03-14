@@ -1,22 +1,42 @@
 #include <Leaf.hpp>
 
-/*explicit*/ inline Leaf::Leaf()
+/*explicit*/ INLINE Leaf::Leaf()
 	: m_parent(nullptr)
 {
 
 }
 
-/*virtual*/ inline Leaf::~Leaf()
+/*virtual*/ INLINE Leaf::~Leaf()
 {
 
 }
 
-/*virtual*/ inline Node* Leaf::GetParent() const
+/*virtual*/ INLINE Node* Leaf::GetParent() const
 {
 	return m_parent;
 }
 
-/*virtual*/ inline void Leaf::SetParent(Node* parent)
+/*virtual*/ INLINE void Leaf::SetParent(Node* parent)
 {
 	m_parent = parent;
+}
+
+/*virtual*/ void Leaf::SetEnabled(bool state)
+{
+	m_enabled = state;
+}
+
+/*virtual*/ bool Leaf::IsEnabled() const
+{
+	return m_enabled;
+}
+
+/*virtual*/ Light* LightLeaf::GetLight() const
+{
+	return m_light;
+}
+
+/*virtual*/ void LightLeaf::SetLight(Light* light)
+{
+	m_light = light;
 }

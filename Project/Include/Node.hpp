@@ -16,10 +16,10 @@ public:
 	virtual					~Node				(void);
   
 	virtual unsigned int	GetChildNodeCount	(void) const;
-	virtual Node*			GetChildNode		(int index);
+	virtual Node*			GetChildNode		(unsigned int index);
 
 	virtual unsigned int	GetChildLeafCount	(void) const;
-	virtual Leaf*			GetChildLeaf		(int index);
+	virtual Leaf*			GetChildLeaf		(unsigned int index);
 
 	virtual void			ApplyTransformation	(void) = 0;
 	virtual void			Render				(void);
@@ -36,6 +36,9 @@ public:
 	virtual Node*			GetParent			(void) const;
 	virtual void			SetParent			(Node* parent);
 
+	virtual void			SetEnabled			(bool state);
+	virtual bool			IsEnabled			(void) const;
+
 	virtual void			Dump				(std::string tab, unsigned int tabCount) = 0;
 	virtual void			DumpChildren		(std::string tab, unsigned int tabCount);
 
@@ -45,6 +48,7 @@ protected:
 	std::vector<Leaf*>	m_leafChildren;
 
 	Node*				m_parent;
+	bool				m_enabled;
 
 };
 

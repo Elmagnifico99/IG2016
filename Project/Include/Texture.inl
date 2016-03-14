@@ -1,27 +1,27 @@
 #include <Texture.hpp>
 #include <GL/gl.h>
 
-/*virtual*/ inline Texture::~Texture()
+/*virtual*/ INLINE Texture::~Texture()
 {
 	DeleteReference(m_identifier);
 }
 
-/*virtual*/ inline void Texture::Enable() const
+/*virtual*/ INLINE void Texture::Enable() const
 {
 	glBindTexture(GL_TEXTURE_2D, m_identifier);
 }
 
-/*virtual*/ inline unsigned int Texture::GetIdentifier() const
+/*virtual*/ INLINE unsigned int Texture::GetIdentifier() const
 {
 	return m_identifier;
 }
 
-/*virtual*/ inline bool Texture::IsSmoothEnabled() const
+/*virtual*/ INLINE bool Texture::IsSmoothEnabled() const
 {
 	return m_smooth;
 }
 
-/*virtual*/ inline bool Texture::IsClampRepeat() const
+/*virtual*/ INLINE bool Texture::IsClampRepeat() const
 {
 	return m_clampRepeat;
 }

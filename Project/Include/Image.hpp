@@ -1,6 +1,8 @@
 #ifndef __IMAGE_HPP
 #define __IMAGE_HPP
 
+#include <Config.hpp>
+
 #include <PNG/png.h>
 #include <string>
 
@@ -94,6 +96,8 @@ protected:
 
 };
 
+#ifndef NO_INLINE
 #include "Image.inl"
+#endif // NO_INLINE
 
 #endif // __IMAGE_HPP

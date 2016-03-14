@@ -1,6 +1,8 @@
 #ifndef __APPLICATION_HPP
 #define __APPLICATION_HPP
 
+#include <Config.hpp>
+
 #include <Keyboard.hpp>
 #include <Mouse.hpp>
 #include <string>
@@ -85,6 +87,8 @@ protected:
 
 };
 
+#ifndef NO_INLINE
 #include "Application.inl"
+#endif // NO_INLINE
 
 #endif // __APPLICATION_HPP

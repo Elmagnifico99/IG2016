@@ -1,6 +1,10 @@
 #include <Material.hpp>
 #include <GL/gl.h>
 
+#ifdef NO_INLINE
+#include <Material.inl>
+#endif
+
 /*static*/ const float Material::DEFAULT_AMBIENT[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 /*static*/ const float Material::DEFAULT_DIFFUSE[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 /*static*/ const float Material::DEFAULT_SPECULAR[] = { 0.25f, 0.25f, 0.25f, 1.0f };

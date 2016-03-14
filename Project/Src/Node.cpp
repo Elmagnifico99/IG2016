@@ -20,7 +20,7 @@
 	return m_nodeChildren.size();
 }
 
-/*virtual*/ Node* Node::GetChildNode(int index)
+/*virtual*/ Node* Node::GetChildNode(unsigned int index)
 {
 	if(index >= 0 && index < m_nodeChildren.size())
 	{
@@ -34,7 +34,7 @@
 	return m_leafChildren.size();
 }
 
-/*virtual*/ Leaf* Node::GetChildLeaf(int index)
+/*virtual*/ Leaf* Node::GetChildLeaf(unsigned int index)
 {
 	if(index >= 0 && index < m_leafChildren.size())
 	{
@@ -162,6 +162,16 @@
 /*virtual*/ void Node::SetParent(Node* parent)
 {
 	m_parent = parent;
+}
+
+/*virtual*/ void Node::SetEnabled(bool state)
+{
+	m_enabled = state;
+}
+
+/*virtual*/ bool Node::IsEnabled() const
+{
+	return m_enabled;
 }
 
 /*virtual*/ void Node::DumpChildren(std::string tab, unsigned int tabCount)

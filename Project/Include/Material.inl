@@ -1,41 +1,41 @@
 #include <Material.hpp>
 
-/*virtual*/ inline Material::~Material()
+/*virtual*/ INLINE Material::~Material()
 {
 
 }
 
-/*virtual*/ inline const float* Material::GetAmbient() const
+/*virtual*/ INLINE const float* Material::GetAmbient() const
 {
 	return (float*)m_ambient;
 }
 
-/*virtual*/ inline const float* Material::GetDiffuse() const
+/*virtual*/ INLINE const float* Material::GetDiffuse() const
 {
 	return (float*)m_diffuse;
 }
 
-/*virtual*/ inline const float* Material::GetSpecular() const
+/*virtual*/ INLINE const float* Material::GetSpecular() const
 {
 	return (float*)m_specular;
 }
 
-/*virtual*/ inline void Material::SetShininess(float shininess)
+/*virtual*/ INLINE void Material::SetShininess(float shininess)
 {
 	m_shininess = shininess;
 }
 
-/*virtual*/ inline float Material::GetShininess() const
+/*virtual*/ INLINE float Material::GetShininess() const
 {
 	return m_shininess;
 }
 
-/*virtual*/ inline void Material::SetDiffuseTexture(Texture* texture)
+/*virtual*/ INLINE void Material::SetDiffuseTexture(Texture* texture)
 {
 	SetDiffuseTexture(texture, m_diffuseBlend);
 }
 
-/*virtual*/ inline void Material::RemoveDiffuseTexture(void)
+/*virtual*/ INLINE void Material::RemoveDiffuseTexture(void)
 {
 	m_diffuseTexture = nullptr;
 }

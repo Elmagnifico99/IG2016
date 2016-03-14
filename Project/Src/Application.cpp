@@ -11,6 +11,10 @@
 #include <X11/Xlib.h>
 #endif
 
+#ifdef NO_INLINE
+#include <Application.inl>
+#endif
+
 /*static*/ Application* Application::s_instance = nullptr;
 
 /*explicit*/ Application::Parameters::Parameters()

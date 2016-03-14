@@ -1,6 +1,8 @@
 #ifndef __VECTOR_HPP
 #define __VECTOR_HPP
 
+#include <Config.hpp>
+
 template<typename T>
 class Vector2
 {

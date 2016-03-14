@@ -169,12 +169,13 @@ class MyApp : public Application
 		mat->SetDiffuseTexture(tex2, Material::e_texture_color_blend_mode_texture_and_color);
 		init();
 		reshape(parameters.Width, parameters.Height);
+		srand(time(NULL));
 	}
 	virtual void OnUpdate(float deltaTimeInSeconds)
 	{
-		r0 += 0.05f * deltaTimeInSeconds;
-		r1 += 0.03f * deltaTimeInSeconds;
-		r2 += 0.2f * deltaTimeInSeconds;
+		r0 += ((rand() % 10000) / 10000.0) * 0.1f * deltaTimeInSeconds;
+		r1 += ((rand() % 10000) / 10000.0) * 0.06f * deltaTimeInSeconds;
+		r2 += ((rand() % 10000) / 10000.0) * 0.4f * deltaTimeInSeconds;
 		float tmp0 = r0, tmp1 = r1, tmp2 = r2;
 		if(r0 >= 1.0f)
 		{

@@ -1,6 +1,8 @@
 #ifndef __TEXTURE_HPP
 #define __TEXTURE_HPP
 
+#include <Config.hpp>
+
 #include <Image.hpp>
 
 #include <map>
@@ -46,6 +48,8 @@ private:
 
 };
 
+#ifndef NO_INLINE
 #include "Texture.inl"
+#endif // NO_INLINE
 
 #endif // __TEXTURE_HPP

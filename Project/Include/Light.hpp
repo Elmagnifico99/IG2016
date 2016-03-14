@@ -21,46 +21,59 @@
 #ifndef __LIGHT_H
 #define __LIGHT_H
 
+#include <Config.hpp>
+
 #include <Vector.hpp>
+#include <Color.hpp>
 
 enum ELightAttenuation
 {
-	CONSTANT,
-	LINEAR,
-	QUADRATIC
+	e_light_attenuation_constant,
+	e_light_attenuation_linear,
+	e_light_attenuation_quadratic
 };
 
 class Light
 {
-public :
+
+public:
+
 	explicit Light();
 	explicit Light(Vector3f position, ColorRGBA ambiant, ColorRGBA diffuse, ColorRGBA specular, ELightAttenuation attenuationType, float currentAttenuation);
 
-	virtual void		SetPosition(Vector3f pos);
-	virtual Vector3f	GetPosition();
+	virtual void		SetPosition		(Vector3f pos);
+	virtual Vector3f	GetPosition		(void) const;
 
-	virtual void		SetAmbiantLight(ColorRGBA color);
-	virtual void		SetDiffuseLight(ColorRGBA color);
+	virtual void		SetAmbiantLight	(ColorRGBA color);
+	virtual void		SetDiffuseLight	(ColorRGBA color);
 	virtual void		SetSpecularLight(ColorRGBA color);
 
-	virtual void		SetAttenuation(ELightAttenuation type, float value);
-protected :
-	Vector3f m_position;
+	virtual void		SetAttenuation	(ELightAttenuation type, float value);
 
-	ColorRGBA m_ambiant;
-	ColorRGBA m_diffuse;
-	ColorRGBA m_specular;
+	virtual void		SetEnabled		(bool state);
+	virtual bool		IsEnabled		(void) const;
 
-	ELightAttenuation m_attenuationType;
+protected:
 
-	float	m_currentAttenuation;
+	Vector3f			m_position;
+
+	ColorRGBA			m_ambiant;
+	ColorRGBA			m_diffuse;
+	ColorRGBA			m_specular;
+
+	ELightAttenuation	m_attenuationType;
+
+	float				m_currentAttenuation;
+	bool				m_enabled;
 };
 
-class PointLight : public Light {};
+typedef Light PointLight;
 
 class SpotLight : public Light
 {
-public : 
+
+public:
+
 	explicit SpotLight();
 	explicit SpotLight(Vector3f position
 		, ColorRGBA ambiant
@@ -70,15 +83,18 @@ public :
 		, float currentAttenuation
 		, float cutOff);
 
-	virtual void setCutOff(float value);
+	virtual void SetCutOff(float value);
 
-protected :
+protected:
+
 	float m_cutoff;
 };
 
 class DirectionalLight : public Light
 {
-public : 
+
+public:
+
 	explicit DirectionalLight();
 	explicit DirectionalLight(Vector3f position
 		, ColorRGBA ambiant
@@ -88,9 +104,15 @@ public :
 		, float currentAttenuation
 		, float direction);
 
-	virtual void setDirection(Vector3d value);
+	virtual void SetDirection(Vector3d value);
 
-protected :
+protected:
+
 	Vector3d m_direction;
 };
+
+#ifndef NO_INLINE
+#include "Light.inl"
+#endif // NO_INLINE
+
 #endif // __LIGHT_H

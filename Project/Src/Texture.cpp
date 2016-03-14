@@ -2,6 +2,10 @@
 
 #include <GL/gl.h>
 
+#ifdef NO_INLINE
+#include <Texture.inl>
+#endif
+
 /*explicit*/ Texture::Texture(const char* file)
 	: m_identifier(0)
 	, m_smooth(false)
