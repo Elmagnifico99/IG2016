@@ -12,6 +12,7 @@
 	, m_attenuationType(attenuationType)
 	, m_currentAttenuation(currentAttenuation)
 {
+	//Test 
 
 }
 
